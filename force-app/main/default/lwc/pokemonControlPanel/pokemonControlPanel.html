@@ -1,0 +1,53 @@
+<template>
+	<lightning-card title="DexSearch">
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col">
+				<span></span>
+			</div>
+			<div class="slds-col">
+				<span>
+                <div><center>Search for any pokemon you like!</center></div>
+                <div>
+					<center><input  id="SearchItem" placeholder="Eevee..." onchange={handleSearch}></input></center>  
+                </div>
+                <div>
+                    <center><lightning-button label="Search" onclick={handleClick} ></lightning-button></center>
+                </div>
+            </span>
+			</div>
+			<div class="slds-col">
+				<span></span>
+			</div>
+		</div>
+	</lightning-card>
+        
+
+    <lightning-card if:true={displayname}>
+        <div>
+            <center>PokeDex#: {id}</center>
+        </div>
+        <div><center><b>{callsign}</b></center></div>
+        <div><center><b>{displayname}</b></center></div>
+        <div>
+            <center><img src={sprite}></center>
+        </div>
+        <div>
+            <h1>
+                <center><b>{displayname}'s Abilities</b></center> 
+            </h1>
+            <center><p>{abilities}</p></center>
+        </div>
+        <div></div>
+        <div>
+            <h1>
+                <center><b>{displayname}'s Move list</b></center> 
+            </h1>
+            <p>{moves}</p>
+        </div>
+    </lightning-card>
+    <lightning-card if:true={displayname}>
+        <center><lightning-button label="Create Record" onclick={saveAction}></lightning-button></center>
+        <div if:true={checkone}> <center> Pokemon Record Created </center> </div>
+    </lightning-card>
+</template>
+
